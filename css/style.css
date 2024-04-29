@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+.container{
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 2fr 20fr 2fr;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-areas: 
+    "header header header"
+    "left middle right"
+    "left footer right"
+    ;
+}
+.header{
+    grid-area: header;
+    background-color: blue;
+}
+.header > h1{
+    text-align: center;
+    justify-content: center;
+    text-transform: uppercase;
+    color: white;
+    margin-top: 20px;
+}
+.left{
+    grid-area: left;
+    background-color:yellow;
+}
+.left .cajas{
+    height: 70%;
+    background-color: black;
+    overflow-y: scroll;
+}
+.left .cajas > div{
+    margin-bottom: 5px;
+    height: 8vh;
+    background-color: pink;
+}
+.botones {
+    height: 30%;
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.box {
+    background-color: white;
+    padding: 25px 25px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-radius: 7px;
+}
+
+.systems {
+    font-size: 20px;    
+}
+
+.cabin {
+    font-size: 30px;
+    font-weight: bold;
+}
+.middle{
+    grid-area: middle;
+    background-color:black;
+}
+
+.right{
+    grid-area: right;
+    background-color:green;
+}
+.barras{
+    height: 80%;
+}
+.barras > div{
+    margin-bottom: 5px;
+    height: 8vh;
+    background-color: pink;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.button{
+    height: 20%;
+    display: flex;
+    justify-content: center;
+}
+.button > button{
+    width: 40%;
+    height: 40%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1vw;
+}
+.views{
+    display: flex;
+    justify-content: space-around;
+}
