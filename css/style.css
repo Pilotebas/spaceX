@@ -67,10 +67,61 @@
     font-weight: bold;
 }
 .middle{
+    display: grid;
     grid-area: middle;
-    background-color:black;
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: repeat(8,1fr);
+    grid-template-areas: 
+    "caja_1 caja_1 caja_2 caja_2 caja_3 caja_3 caja_4 caja_4"
+    "caja_1 caja_1 caja_2 caja_2 caja_3 caja_3 caja_4 caja_4"
+    "caja_5 caja_6 caja_10 caja_10 caja_10 caja_10 caja_7 caja_8"
+    "caja_5 caja_6 caja_10 caja_10 caja_10 caja_10 caja_7 caja_8"
+    "caja_9 caja_9 caja_10 caja_10 caja_10 caja_10 . ."
+    "caja_9 caja_9 caja_10 caja_10 caja_10 caja_10 . ."
+    "caja_9 caja_9 caja_10 caja_10 caja_10 caja_10 . ."
+    "caja_9 caja_9 caja_10 caja_10 caja_10 caja_10 . ."
+    ;
 }
-
+.caja_1{
+    grid-area: caja_1;
+    background-color: green;
+}
+.caja_2{
+    grid-area: caja_2;
+    background-color: red;
+}
+.caja_3{
+    grid-area: caja_3;
+    background-color: brown;
+}
+.caja_4{
+    grid-area: caja_4;
+    background-color: violet;
+}
+.caja_5{
+    grid-area: caja_5;
+    background-color: pink;
+}
+.caja_6{
+    grid-area: caja_6;
+    background-color: purple;
+}
+.caja_7{
+    grid-area: caja_7;
+    background-color: green;
+}
+.caja_8{
+    grid-area: caja_8;
+    background-color: red;
+}
+.caja_9{
+    grid-area: caja_9;
+    background-color: grey;
+}
+.caja_10{
+    grid-area: caja_10;
+    background-color: yellow;
+}
 .right{
     grid-area: right;
     background-color:green;
@@ -99,6 +150,10 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 1vw;
+}
+.footer{
+    grid-area: footer;
+    background-color: burlywood;
 }
 .views{
     display: flex;
