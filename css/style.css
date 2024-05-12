@@ -158,7 +158,6 @@ body {
 }
 /*  */
 .section__information__container {
-    /* background: #d9ff00; */
     grid-area: section__main;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -167,7 +166,6 @@ body {
 }
 
 .section__information__2 {
-    /* background: blue; */
     grid-area: colum__1;
     display: grid;
     grid-template-rows: 1fr 1.3fr;
@@ -177,7 +175,6 @@ body {
 }
 
 .section__information__2 div:first-child {
-    /* background: #d9ff00; */
     grid-area: carusel__colum__1;
     display: flex;
     overflow-x: auto;
