@@ -3,7 +3,7 @@ export const informationRockets = async( description)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/description.svg")
+    img.setAttribute("src", "storage/img/description.png")
 
      // Establecer el tamaño de la imagen usando atributos width y height
     img.setAttribute("width", "50"); 
@@ -94,7 +94,7 @@ export const informationLaunchCostRocket = async(cost_per_launch)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/money.svg")
+    img.setAttribute("src", "storage/img/costo.png")
 
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
@@ -128,8 +128,7 @@ export const informationFirstFlightRocket = async(first_flight)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/first.svg")
-
+    img.setAttribute("src", "storage/img/fecha.png")
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
 
@@ -249,7 +248,7 @@ export const informationWebRocket = async(wikipedia)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/lupa.svg")
+    img.setAttribute("src", "storage/img/info.png")
 
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
