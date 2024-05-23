@@ -33,6 +33,7 @@ capsules.addEventListener("click", async(e)=>{
     paginacion.append(await paginationCapsules())
 })
 
+
 //pagina a mostrar primero cuando se carga 
 
 rocket.click();

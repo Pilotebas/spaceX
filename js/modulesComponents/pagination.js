@@ -83,30 +83,57 @@ export const load = async()=>{
         <div class="load"></div>
     `;
 }
-export const clear = async()=>{
+export const clear = async () => {
     let header__title = document.querySelector("#header__title");
-    header__title.innerHTML = ``;
+    if (header__title) {
+        header__title.innerHTML = ``;
+    } else {
+        console.error('No se encontró el elemento con ID "header__title"');
+    }
 
     let description__item = document.querySelector("#description__item");
-    description__item.innerHTML = ``;
+    if (description__item) {
+        description__item.innerHTML = ``;
+    } else {
+        console.error('No se encontró el elemento con ID "description__item"');
+    }
 
-    let section__information__1 = document.querySelector("#section__information__1")
-    section__information__1.innerHTML = ``;
+    let section__information__1 = document.querySelector("#section__information__1");
+    if (section__information__1) {
+        section__information__1.innerHTML = ``;
+    } else {
+        console.error('No se encontró el elemento con ID "section__information__1"');
+    }
 
-    let information__table__1 = document.querySelector("#information__table__1")
-    information__table__1.innerHTML = ``;
+    let information__table__1 = document.querySelector(".section__information__2 #information__table__1");
+    if (information__table__1) {
+        information__table__1.innerHTML = ``;
+    } else {
+        console.error('No se encontró el elemento con el selector ".section__information__2 #information__table__1"');
+    }
 
-    let section__image = document.querySelector("#section__image")
-    section__image.innerHTML = ``;
+    let section__image = document.querySelector("#section__image");
+    if (section__image) {
+        section__image.innerHTML = ``;
+    } else {
+        console.error('No se encontró el elemento con ID "section__image"');
+    }
 
+    let information__table__2 = document.querySelector(".section__information__3 #information__table__2");
+    if (information__table__2) {
+        information__table__2.innerHTML = ``;
+    } else {
+        console.error('No se encontró el elemento con el selector ".section__information__3 #information__table__2"');
+    }
 
-    let information__table__2 = document.querySelector("#information__table__2")
-    information__table__2.innerHTML = ``;
+    let information__2 = document.querySelector("#information__2");
+    if (information__2) {
+        information__2.innerHTML = ``;
+    } else {
+        console.error('No se encontró el elemento con ID "information__2"');
+    }
+};
 
-    let information__2 = document.querySelector("#information__2")
-    information__2.innerHTML = ``;
-
-}
 
 const getRocketsId = async(e)=>{
     e.preventDefault();
@@ -195,7 +222,6 @@ const getCapsulesId = async(e)=>{
 
     let Capsule = await getAllCapsulesId(e.target.id)
     await nameRockets("Capsule")
-    await imagen("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbt7vhhz3j_19auW2HorH1zwfVpfmaQx2IjoKDlbWf7kLqfVSjOpwwf_OWyzXNCSnJKo&usqp=CAU")
     await informacionCapsule(Capsule.reuse_count, Capsule.water_landings, Capsule.last_update,Capsule.serial, Capsule.estado, Capsule.type,Capsule.id)
 }
 
