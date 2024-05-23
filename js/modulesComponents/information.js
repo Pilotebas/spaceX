@@ -298,3 +298,24 @@ export const informacionCapsule = async(reuse_count, water_landings, land_landin
     div.innerHTML =content
     description__item.append(div)
 }
+
+export const informacionCore = async(reuse_count, rtls_attempts, rtls_landings, asds_attempts, serial, estado, last_update, id)=>{
+    let description__item = document.querySelector(".description__item")
+    let div = document.createElement("div")
+    const style = `<link rel="stylesheet" href="../css/report.css">`;
+    let content = `${style}`;
+    content +=`
+    <div class="containerComponente">
+        <h1>Reuse count: ${reuse_count}</h1>
+        <h1>Rtls attempts: ${rtls_attempts}</h1>
+        <h1>Rtls landings: ${rtls_landings}</h1>
+        <h1>Asds attempts: ${asds_attempts}</h1>
+        <h1>Serial: ${serial}</h1>
+        <h1>Status: ${estado}</h1>
+        <h1>Last Update: ${last_update}</h1>
+        <h1>ID: ${id}</h1>
+    </div>
+`
+    div.innerHTML =content
+    description__item.append(div)
+}
