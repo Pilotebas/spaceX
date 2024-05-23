@@ -11,7 +11,9 @@ import {
     informationFirstFlightRocket,
     informationWebRocket,
     informacionCapsule,
-    informacionCore
+    informacionCore,
+    informacionCrew
+
 } from "./information.js";
 
 import { 
@@ -34,10 +36,17 @@ import {
     getAllCapsules,
     getAllCapsulesId
 } from "../modules/capsules.js";
+
 import { 
     getAllCores,
     getAllCoresId
 } from "../modules/core.js";
+
+import { 
+    getAllCrew,
+    getAllCrewId
+} from "../modules/crew.js";
+
 
 export const load = async()=>{
     let header__title = document.querySelector("#header__title");
@@ -286,9 +295,9 @@ const getCoreId = async(e)=>{
     let section__information__3 = document.querySelector(".section__information__3")
     section__information__3.innerHTML = ""
 
-    let Capsule = await getAllCoresId(e.target.id)
+    let Core = await getAllCoresId(e.target.id)
     await nameRockets("Core")
-    await informacionCapsule(Capsule.reuse_count, Capsule.rtls_attempts, Capsule.rtls_landings, Capsule.asds_attempts, Capsule.serial, Capsule.estado, Capsule.last_update ,Capsule.id)
+    await informacionCore(Core.reuse_count, Core.rtls_attempts, Core.rtls_landings, Core.asds_attempts, Core.serial, Core.status, Core.last_update ,Core.id)
 }
 
 export const paginationCore = async(page=1, limit=4)=>{  
@@ -319,6 +328,80 @@ export const paginationCore = async(page=1, limit=4)=>{
     end.innerHTML = "&raquo;";
     end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
     end.addEventListener("click", getCoreId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+    // <div class="buttom__paginacion">
+    //     <a href="#">&laquo;</a> 
+    //     <a href="#" class="activo">1</a>
+    //     <a href="#">2</a>
+    //     <a href="#">3</a>
+    //     <a href="#">4</a>
+    //     <a href="#">&raquo;</a>
+    // </div>
+    return div;
+}
+
+const getCrewId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationCrew(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let information__2 = document.querySelector("#information__2");
+    information__2.innerHTML = "";
+    let description__item = document.querySelector("#description__item")
+    description__item.innerHTML = "";
+    let section__image = document.querySelector("#section__image")
+    section__image.innerHTML = "";
+    let section__information__1 = document.querySelector(".section__information__1")
+    section__information__1.innerHTML = ""
+    let section__information__2 = document.querySelector(".section__information__2")
+    section__information__2.innerHTML = ""
+    let section__information__3 = document.querySelector(".section__information__3")
+    section__information__3.innerHTML = ""
+
+    let Crew = await getAllCrewId(e.target.id)
+    await nameRockets("Crew")
+    await informacionCrew(Crew.name, Crew.agency, Crew.status, Crew.id)
+}
+
+export const paginationCrew = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllCrew(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getCrewId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getCrewId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getCrewId)
     div.appendChild(end);
     console.log(div);
     let [back, a1,a2,a3,a4, next] = div.children

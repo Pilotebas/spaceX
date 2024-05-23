@@ -319,3 +319,20 @@ export const informacionCore = async(reuse_count, rtls_attempts, rtls_landings, 
     div.innerHTML =content
     description__item.append(div)
 }
+
+export const informacionCrew = async(name, agency, estado, id)=>{
+    let description__item = document.querySelector(".description__item")
+    let div = document.createElement("div")
+    const style = `<link rel="stylesheet" href="../css/report.css">`;
+    let content = `${style}`;
+    content +=`
+    <div class="containerComponente">
+        <h1>Name: ${name}</h1>
+        <h1>Agency: ${agency}</h1>
+        <h1>Status: ${estado}</h1>
+        <h1>ID: ${id}</h1>
+    </div>
+`
+    div.innerHTML =content
+    description__item.append(div)
+}
