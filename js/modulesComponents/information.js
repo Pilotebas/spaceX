@@ -448,3 +448,36 @@ export const information2Dragons = async(info0, info1, info2, info3) =>{
     div.innerHTML =content
     description__item.append(div)
 }
+
+export const informationStarlink = async(dic1) =>{
+    let description__item = document.querySelector("#description__item")
+    let div = document.createElement("div")
+    const style = `<link rel="stylesheet" href="../css/report.css">`;
+    let content = `${style}`;
+    content +=`
+    <div class="containerComponente">
+        <h1>CCSDS OMM VERS: <span>${dic1.CCSDS_OMM_VERS}</span></h1>
+        <p><span>Comment: </span>${dic1.COMMENT}</p>
+        <p><span>Creation Date: </span>${dic1.CREATION_DATE}</p>
+        <p><span>Object Id: </span>${dic1.OBJECT_ID}</p>    
+    </div>
+`
+    div.innerHTML =content
+    description__item.append(div)
+}
+
+export const information2Starlink = async(info0, info1, info2) =>{
+    let description__item = document.querySelector(".information__item")
+    let div = document.createElement("div")
+    const style = `<link rel="stylesheet" href="../css/report.css">`;
+    let content = `${style}`;
+    content +=`
+    <div class="containerComponente">
+        <h1><span>id: </span>${info0}</h1>
+        <h1><span>Version: </span>${info1}</h1>
+        <h1><span>Launch: </span>${info2}</h1>
+    </div>
+`
+    div.innerHTML =content
+    description__item.append(div)
+}
