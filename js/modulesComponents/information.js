@@ -414,3 +414,37 @@ export const informacionRoadster = async (name, launch_date_utc, launch_mass_kg,
     div.innerHTML = content;
     description__item.append(div);
 }
+
+export const informationDragons = async(dic1, description) =>{
+    let description__item = document.querySelector("#description__item")
+    let div = document.createElement("div")
+    const style = `<link rel="stylesheet" href="../css/report.css">`;
+    let content = `${style}`;
+    content +=`
+    <div class="containerComponente">
+        <h1><span>Material: </span>${dic1.material}</h1>
+        <h1><span>Size Meters: </span>${dic1.size_meters}</h1>
+        <h1><span>Dev Partner: </span>${dic1.dev_partner}</h1>
+        <h1><span>Description: </span>${description}</h1>    
+    </div>
+`
+    div.innerHTML =content
+    description__item.append(div)
+}
+
+export const information2Dragons = async(info0, info1, info2, info3) =>{
+    let description__item = document.querySelector(".information__item")
+    let div = document.createElement("div")
+    const style = `<link rel="stylesheet" href="../css/report.css">`;
+    let content = `${style}`;
+    content +=`
+    <div class="containerComponente">
+        <h1><span>Name: </span>${info0}</h1>
+        <h1><span>Type: </span>${info1}</h1>
+        <h1><span>First Flight: </span>${info2}</h1>
+        <h1><span>Active: </span>${info3}</h1>
+    </div>
+`
+    div.innerHTML =content
+    description__item.append(div)
+}

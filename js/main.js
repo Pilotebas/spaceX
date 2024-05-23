@@ -5,7 +5,8 @@ import {
     paginationRockets,
     paginationCrew,
     paginationCompany,
-    paginationRoadster
+    paginationRoadster,
+    paginationDragons
 } from "./modulesComponents/pagination.js";
 
 let footerSelect = async(e, id)=>{
@@ -67,6 +68,14 @@ roadster.addEventListener("click", async(e)=>{
     let paginacion = document.querySelector("#paginacion");
     paginacion.innerHTML = ""
     paginacion.append(await paginationRoadster())
+})
+
+let dragons = document.querySelector("#dragons")
+dragons.addEventListener("click", async(e)=>{
+    await footerSelect(e, dragons)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationDragons())
 })
 //pagina a mostrar primero cuando se carga 
 
