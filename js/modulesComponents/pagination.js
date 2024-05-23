@@ -13,10 +13,7 @@ import {
     informacionCapsule,
     informacionCore
 } from "./information.js";
-import { 
-    tableRocketColum1, 
-    tableRocketColum2
-} from "./tables.js";
+
 import { 
     informRocketEngineThrustSeaLevel, 
     informRocketEngineThrustVacuum
@@ -61,22 +58,13 @@ export const load = async()=>{
     section__information__1.innerHTML = `
         <div class="load" style="height: 150px;"></div>
     `;
-
-    let information__table__1 = document.querySelector("#information__table__1")
-    information__table__1.innerHTML = `
-        <div class="load" style="height: 160px;"></div>
-    `;
+    
 
     let section__image = document.querySelector("#section__image")
     section__image.innerHTML = `
         <div class="load" style="height: 350px"></div>
     `;
 
-
-    let information__table__2 = document.querySelector("#information__table__2")
-    information__table__2.innerHTML = `
-        <div class="load" style="height: 160px;"></div>
-    `;
 
     let information__2 = document.querySelector("#information__2")
     information__2.innerHTML = `
@@ -86,6 +74,8 @@ export const load = async()=>{
         <div class="load"></div>
         <div class="load"></div>
     `;
+    console.log("information__2", information__2);
+
 }
 export const clear = async () => {
     let header__title = document.querySelector("#header__title");
@@ -160,9 +150,6 @@ const getRocketsId = async(e)=>{
     await informRocketEngineThrustSeaLevel(Rocket.engines.thrust_sea_level);
     await informRocketEngineThrustVacuum(Rocket.engines.thrust_vacuum);
     await imageRockets(Rocket.flickr_images);
-
-    await tableRocketColum1(Rocket)
-    await tableRocketColum2(Rocket)
 
     await progressRocketWeight(Rocket)
     await progressPayloadWeights(Rocket)
@@ -278,7 +265,7 @@ const getCoreId = async(e)=>{
     if(e.target.dataset.page){
         let paginacion = document.querySelector("#paginacion");
         paginacion.innerHTML = ""
-        paginacion.append(await paginationCapsules(Number(e.target.dataset.page)))
+        paginacion.append(await paginationCore(Number(e.target.dataset.page)))
     }
     let a = e.target.parentElement.children;
     for(let val of a){
