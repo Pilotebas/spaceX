@@ -12,7 +12,9 @@ import {
     informationWebRocket,
     informacionCapsule,
     informacionCore,
-    informacionCrew
+    informacionCrew,
+    informationCompany,
+    information2Company
 
 } from "./information.js";
 
@@ -46,6 +48,11 @@ import {
     getAllCrew,
     getAllCrewId
 } from "../modules/crew.js";
+
+import { 
+    getAllCompany,
+    getAllCompanyId
+} from "../modules/company.js";
 
 
 export const load = async()=>{
@@ -414,5 +421,62 @@ export const paginationCrew = async(page=1, limit=4)=>{
     //     <a href="#">4</a>
     //     <a href="#">&raquo;</a>
     // </div>
+    return div;
+
+}
+
+const getCompanyId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationCompany(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let information__2 = document.querySelector("#information__2");
+    information__2.innerHTML = "";
+    let description__item = document.querySelector("#description__item")
+    description__item.innerHTML = "";
+    let section__image = document.querySelector("#section__image")
+    section__image.innerHTML = "";
+    let section__information__1 = document.querySelector(".section__information__1")
+    section__information__1.innerHTML = ""
+    let section__information__2 = document.querySelector(".section__information__2")
+    section__information__2.innerHTML = ""
+    let section__information__3 = document.querySelector(".section__information__3")
+    section__information__3.innerHTML = ""
+
+    let Company = await getAllCompany()
+
+    await nameRockets("Company")
+    await informationCompany(Company.headquarters, Company.links, Company.summary)
+    await information2Company(Company.name, Company.founder, Company.founded, Company.employees, Company.vehicles, Company.coo, Company.cto_propulsion)
+}
+
+export const paginationCompany = async(page=1, limit=1)=>{  
+     
+    let docs= await getAllCompany()
+    console.log(typeof docs)
+    let pagingCounter = 1
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    let a = document.createElement("a");
+    a.setAttribute("href","#");
+    a.textContent = pagingCounter;
+    a.addEventListener("click", getCompanyId)
+    div.appendChild(a);
+    console.log(div);
+    let [a1] = div.children
+    a1.click();
     return div;
 }

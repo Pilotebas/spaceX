@@ -336,3 +336,43 @@ export const informacionCrew = async(name, agency, estado, id)=>{
     div.innerHTML =content
     description__item.append(div)
 }
+
+export const informationCompany = async(dic1, dic2, summary) =>{
+    let description__item = document.querySelector("#description__item")
+    let div = document.createElement("div")
+    const style = `<link rel="stylesheet" href="../css/report.css">`;
+    let content = `${style}`;
+    content +=`
+    <div class="containerComponente">
+        <h1><span>${summary}</span></h1>
+        <h1>city: ${dic1.city}</h1>
+        <h1>State: ${dic1.state}</h1>
+        <h1>Address: ${dic1.address}</h1>
+        <h1>Website: <a href="${dic2.website}">Website</a></h1>
+        <h1>Flickr: <a href="${dic2.flickr}">Flickr</a></h1>
+        <h1>Twitter: <a href="${dic2.twitter}">Twitter</a></h1>    
+    </div>
+`
+    div.innerHTML =content
+    description__item.append(div)
+}
+
+export const information2Company = async(info0, info1, info2, info3, info4, info5, info6) =>{
+    let description__item = document.querySelector(".information__item")
+    let div = document.createElement("div")
+    const style = `<link rel="stylesheet" href="../css/report.css">`;
+    let content = `${style}`;
+    content +=`
+    <div class="containerComponente">
+        <h1>${info0}</h1>
+        <h1>founder: ${info1}</h1>
+        <h1>founded: ${info2}</h1>
+        <h1>employees: ${info3}</h1>
+        <h1>vehicles: ${info4}</h1>
+        <h1>coo: ${info5}</h1>
+        <h1>cto_propulsion: ${info6}</h1>    
+    </div>
+`
+    div.innerHTML =content
+    description__item.append(div)
+}
