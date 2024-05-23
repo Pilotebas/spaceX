@@ -14,7 +14,8 @@ import {
     informacionCore,
     informacionCrew,
     informationCompany,
-    information2Company
+    information2Company,
+    informacionRoadster
 
 } from "./information.js";
 
@@ -54,6 +55,10 @@ import {
     getAllCompanyId
 } from "../modules/company.js";
 
+import { 
+    getAllRoadster,
+    getAllRoadsterId
+} from "../modules/roadster.js";
 
 export const load = async()=>{
     let header__title = document.querySelector("#header__title");
@@ -474,6 +479,62 @@ export const paginationCompany = async(page=1, limit=1)=>{
     a.setAttribute("href","#");
     a.textContent = pagingCounter;
     a.addEventListener("click", getCompanyId)
+    div.appendChild(a);
+    console.log(div);
+    let [a1] = div.children
+    a1.click();
+    return div;
+}
+
+
+const getRoadsterId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationRoadster(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let information__2 = document.querySelector("#information__2");
+    information__2.innerHTML = "";
+    let description__item = document.querySelector("#description__item")
+    description__item.innerHTML = "";
+    let section__image = document.querySelector("#section__image")
+    section__image.innerHTML = "";
+    let section__information__1 = document.querySelector(".section__information__1")
+    section__information__1.innerHTML = ""
+    let section__information__2 = document.querySelector(".section__information__2")
+    section__information__2.innerHTML = ""
+    let section__information__3 = document.querySelector(".section__information__3")
+    section__information__3.innerHTML = ""
+
+    let Roadster = await getAllRoadsterId(e.target.id)
+    await nameRockets("Roadster")
+    await informacionRoadster(Roadster.name, Roadster.launch_date_utc, Roadster.launch_mass_kg, Roadster.launch_mass_lbs, Roadster.norad_id, Roadster.epoch_jd, Roadster.orbit_type, Roadster.apoapsis_au, Roadster.periapsis_au, Roadster.semi_major_axis_au, Roadster.eccentricity, Roadster.inclination, Roadster.longitude, Roadster.periapsis_arg, Roadster.period_days, Roadster.speed_kph, Roadster.speed_mph, Roadster.earth_distance_km, Roadster.earth_distance_mi, Roadster.mars_distance_km, Roadster.mars_distance_mi, Roadster.id);
+
+}
+
+
+export const paginationRoadster = async(page=1, limit=1)=>{    
+    let docs= await getAllRoadster()
+    console.log("hola", docs)
+    let pagingCounter = 1
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    let a = document.createElement("a");
+    a.setAttribute("href","#");
+    a.textContent = pagingCounter;
+    a.addEventListener("click", getRoadsterId)
     div.appendChild(a);
     console.log(div);
     let [a1] = div.children

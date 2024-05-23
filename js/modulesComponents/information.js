@@ -285,14 +285,14 @@ export const informacionCapsule = async(reuse_count, water_landings, land_landin
     let content = `${style}`;
     content +=`
     <div class="containerComponente">
-        <h1>Reuse count: ${reuse_count}</h1>
-        <h1>Water landings: ${water_landings}</h1>
-        <h1>Land landings: ${land_landings}</h1>
-        <h1>Last update: ${last_update}</h1>
-        <h1>Serial: ${serial}</h1>
-        <h1>Status: ${estado}</h1>
-        <h1>Type: ${type}</h1>
-        <h1>ID: ${id}</h1>
+        <h1><span>Reuse count: </span>${reuse_count}</h1>
+        <h1><span>Water landings: </span>${water_landings}</h1>
+        <h1><span>Land landings: </span>${land_landings}</h1>
+        <h1><span>Last update: </span>${last_update}</h1>
+        <h1><span>Serial: </span>${serial}</h1>
+        <h1><span>Status: </span>${estado}</h1>
+        <h1><span>Type: </span>${type}</h1>
+        <h1><span>ID: </span>${id}</h1>    
     </div>
 `
     div.innerHTML =content
@@ -306,14 +306,14 @@ export const informacionCore = async(reuse_count, rtls_attempts, rtls_landings, 
     let content = `${style}`;
     content +=`
     <div class="containerComponente">
-        <h1>Reuse count: ${reuse_count}</h1>
-        <h1>Rtls attempts: ${rtls_attempts}</h1>
-        <h1>Rtls landings: ${rtls_landings}</h1>
-        <h1>Asds attempts: ${asds_attempts}</h1>
-        <h1>Serial: ${serial}</h1>
-        <h1>Status: ${estado}</h1>
-        <h1>Last Update: ${last_update}</h1>
-        <h1>ID: ${id}</h1>
+        <h1><span>Reuse count: </span>${reuse_count}</h1>
+        <h1><span>Rtls attempts: </span>${rtls_attempts}</h1>
+        <h1><span>Rtls landings: </span>${rtls_landings}</h1>
+        <h1><span>Asds attempts: </span>${asds_attempts}</h1>
+        <h1><span>Serial: </span>${serial}</h1>
+        <h1><span>Status: </span>${estado}</h1>
+        <h1><span>Last Update: </span>${last_update}</h1>
+        <h1><span>ID: </span>${id}</h1>
     </div>
 `
     div.innerHTML =content
@@ -327,10 +327,10 @@ export const informacionCrew = async(name, agency, estado, id)=>{
     let content = `${style}`;
     content +=`
     <div class="containerComponente">
-        <h1>Name: ${name}</h1>
-        <h1>Agency: ${agency}</h1>
-        <h1>Status: ${estado}</h1>
-        <h1>ID: ${id}</h1>
+        <h1><span>Name: </span>${name}</h1>
+        <h1><span>Agency: </span>${agency}</h1>
+        <h1><span>Status: </span>${estado}</h1>
+        <h1><span>ID: </span>${id}</h1>
     </div>
 `
     div.innerHTML =content
@@ -345,12 +345,13 @@ export const informationCompany = async(dic1, dic2, summary) =>{
     content +=`
     <div class="containerComponente">
         <h1><span>${summary}</span></h1>
-        <h1>city: ${dic1.city}</h1>
-        <h1>State: ${dic1.state}</h1>
-        <h1>Address: ${dic1.address}</h1>
-        <h1>Website: <a href="${dic2.website}">Website</a></h1>
-        <h1>Flickr: <a href="${dic2.flickr}">Flickr</a></h1>
-        <h1>Twitter: <a href="${dic2.twitter}">Twitter</a></h1>    
+        <h1><span>City: </span>${dic1.city}</h1>
+        <h1><span>State: </span>${dic1.state}</h1>
+        <h1><span>Address: </span>${dic1.address}</h1>
+        <h1><span>Website: </span><a href="${dic2.website}">Website</a></h1>
+        <h1><span>Flickr: </span><a href="${dic2.flickr}">Flickr</a></h1>
+        <h1><span>Twitter: </span><a href="${dic2.twitter}">Twitter</a></h1>
+
     </div>
 `
     div.innerHTML =content
@@ -364,15 +365,52 @@ export const information2Company = async(info0, info1, info2, info3, info4, info
     let content = `${style}`;
     content +=`
     <div class="containerComponente">
-        <h1>${info0}</h1>
-        <h1>founder: ${info1}</h1>
-        <h1>founded: ${info2}</h1>
-        <h1>employees: ${info3}</h1>
-        <h1>vehicles: ${info4}</h1>
-        <h1>coo: ${info5}</h1>
-        <h1>cto_propulsion: ${info6}</h1>    
+    <h1><span>Name: </span>${info0}</h1>
+    <h1><span>Founder: </span>${info1}</h1>
+    <h1><span>Founded: </span>${info2}</h1>
+    <h1><span>Employees: </span>${info3}</h1>
+    <h1><span>Vehicles: </span>${info4}</h1>
+    <h1><span>COO: </span>${info5}</h1>
+    <h1><span>CTO Propulsion: </span>${info6}</h1>
+     
     </div>
 `
     div.innerHTML =content
     description__item.append(div)
+}
+
+
+export const informacionRoadster = async (name, launch_date_utc, launch_mass_kg, launch_mass_lbs, norad_id, epoch_jd, orbit_type, apoapsis_au, periapsis_au, semi_major_axis_au, eccentricity, inclination, longitude, periapsis_arg, period_days, speed_kph, speed_mph, earth_distance_km, earth_distance_mi, mars_distance_km, mars_distance_mi, id) => {
+    let description__item = document.querySelector(".description__item");
+    let div = document.createElement("div");
+    const style = `<link rel="stylesheet" href="../css/report.css">`;
+    let content = `${style}`;
+    content += `
+    <div class="containerComponente">
+    <h1><span>Name: </span>${name}</h1>
+    <h1><span>Launch Date (UTC): </span>${launch_date_utc}</h1>
+    <h1><span>Launch Mass (kg): </span>${launch_mass_kg}</h1>
+    <h1><span>Launch Mass (lbs): </span>${launch_mass_lbs}</h1>
+    <h1><span>NORAD ID: </span>${norad_id}</h1>
+    <h1><span>Epoch JD: </span>${epoch_jd}</h1>
+    <h1><span>Orbit Type: </span>${orbit_type}</h1>
+    <h1><span>Apoapsis (AU): </span>${apoapsis_au}</h1>
+    <h1><span>Periapsis (AU): </span>${periapsis_au}</h1>
+    <h1><span>Semi Major Axis (AU): </span>${semi_major_axis_au}</h1>
+    <h1><span>Eccentricity: </span>${eccentricity}</h1>
+    <h1><span>Inclination: </span>${inclination}</h1>
+    <h1><span>Longitude: </span>${longitude}</h1>
+    <h1><span>Periapsis ARG: </span>${periapsis_arg}</h1>
+    <h1><span>Period (Days): </span>${period_days}</h1>
+    <h1><span>Speed (kph): </span>${speed_kph}</h1>
+    <h1><span>Speed (mph): </span>${speed_mph}</h1>
+    <h1><span>Earth Distance (km): </span>${earth_distance_km}</h1>
+    <h1><span>Earth Distance (mi): </span>${earth_distance_mi}</h1>
+    <h1><span>Mars Distance (km): </span>${mars_distance_km}</h1>
+    <h1><span>Mars Distance (mi): </span>${mars_distance_mi}</h1>
+    <h1><span>ID: </span>${id}</h1>    
+    </div>
+`;
+    div.innerHTML = content;
+    description__item.append(div);
 }
