@@ -9,7 +9,8 @@ import {
     informationRockets,
     informationLaunchCostRocket,
     informationFirstFlightRocket,
-    informationWebRocket
+    informationWebRocket,
+    informacionCapsule
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -32,7 +33,8 @@ import {
 } from "../modulesComponents/progressBar.js";
 ///
 import { 
-    getAllCapsules 
+    getAllCapsules,
+    getAllCapsulesId
 } from "../modules/capsules.js";
 
 
@@ -165,7 +167,6 @@ export const paginationRockets = async()=>{
     
     return div;
 }
-
 const getCapsulesId = async(e)=>{
     e.preventDefault();
     if(e.target.dataset.page){
@@ -179,12 +180,23 @@ const getCapsulesId = async(e)=>{
     }
     e.target.classList.add('activo');
     
+    let information__2 = document.querySelector("#information__2");
+    information__2.innerHTML = "";
+    let description__item = document.querySelector("#description__item")
+    description__item.innerHTML = "";
+    let section__image = document.querySelector("#section__image")
+    section__image.innerHTML = "";
+    let section__information__1 = document.querySelector(".section__information__1")
+    section__information__1.innerHTML = ""
+    let section__information__2 = document.querySelector(".section__information__2")
+    section__information__2.innerHTML = ""
+    let section__information__3 = document.querySelector(".section__information__3")
+    section__information__3.innerHTML = ""
 
-    // let Rocket = await getAllRocketsId(e.target.id);
-    // console.log(Rocket);
-
-    // await informationRockets(Rocket.country, Rocket.description)
-    
+    let Capsule = await getAllCapsulesId(e.target.id)
+    await nameRockets("Capsule")
+    await imagen("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEbt7vhhz3j_19auW2HorH1zwfVpfmaQx2IjoKDlbWf7kLqfVSjOpwwf_OWyzXNCSnJKo&usqp=CAU")
+    await informacionCapsule(Capsule.reuse_count, Capsule.water_landings, Capsule.last_update,Capsule.serial, Capsule.estado, Capsule.type,Capsule.id)
 }
 
 export const paginationCapsules = async(page=1, limit=4)=>{  
