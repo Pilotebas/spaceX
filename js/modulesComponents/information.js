@@ -277,3 +277,24 @@ export const informationWebRocket = async(wikipedia)=>{
     //     </div>
     // </div>
 }
+
+export const informacionCapsule = async(reuse_count, water_landings, land_landings, last_update, serial, estado, type, id)=>{
+    let description__item = document.querySelector(".description__item")
+    let div = document.createElement("div")
+    const style = `<link rel="stylesheet" href="../css/report.css">`;
+    let content = `${style}`;
+    content +=`
+    <div class="containerComponente">
+        <h1>Reuse count: ${reuse_count}</h1>
+        <h1>Water landings: ${water_landings}</h1>
+        <h1>Land landings: ${land_landings}</h1>
+        <h1>Last update: ${last_update}</h1>
+        <h1>Serial: ${serial}</h1>
+        <h1>Status: ${estado}</h1>
+        <h1>Type: ${type}</h1>
+        <h1>ID: ${id}</h1>
+    </div>
+`
+    div.innerHTML =content
+    description__item.append(div)
+}

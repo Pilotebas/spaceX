@@ -15,3 +15,16 @@ export const imageRockets = async(flickr_images)=>{
     //     <img src="https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg" referrerpolicy="no-referrer">
     // </div>
 }
+
+export const imagen = async(flickr_images)=>{
+    let section__image = document.querySelector("#section__image")
+    let div = document.createElement("div");
+    div.classList.add("carousel__item")
+    const style = `<link rel="stylesheet" href="../css/report.css">`;
+    let content = `${style}`;
+    content +=`
+        <img class="imgconsultas" src= ${flickr_images}>
+    `
+        div.innerHTML =content
+    section__image.append(div)
+}
